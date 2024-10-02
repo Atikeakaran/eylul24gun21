@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nesneler</title>
+</head>
+
+<body>
+    <script src="yaz.js"></script>
+    <script>
+        let masa = {
+            yukseklik: 71,
+            renk: "white",
+            yukselt: function () {
+                this.yukseklik++;
+            },
+            /*this kelimesi olmazsa object için yazılan fonksiyon çalışmaz.*/
+            alcalt: function () {
+                this.yukseklik--;
+            }
+        };
+        yaz(masa.yukseklik);
+        yaz(masa.renk);
+
+        masa.yukselt();
+        yaz("yeni yüksekliği: "+masa.yukseklik);
+        masa.alcalt();
+        masa.alcalt();
+        yaz("yeni yüksekliği: "+masa.yukseklik);
+
+    </script>
+</body>
+
+</html>

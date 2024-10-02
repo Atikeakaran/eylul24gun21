@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alan Hesabı</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+
+<body>
+
+
+    <div class="container">
+        <h1 class="mb-4">Dikdörtgen Alan Hesabı</h1>
+        <div class="mb-3"> <!-- mb margin bottom kısaltmasıdır ms(margins start yani right) me (margin end) -->
+            <label class="form-label" for="gen">Genişlik</label>
+            <input class="form-control" type="number" id="gen" value="0">
+        </div>
+        <div class="mb-3 col-4">
+            <label class="form-label" for="yuk">Yükseklik</label>
+            <input class="form-control" type="number" id="yuk" value="0">
+        </div>
+        <div class="alert alert-info">
+            Özellikleri girilen dikdörtgenin alanı: <strong><span id="sonuc">0</span>br²</strong>
+        </div>
+    </div>
+    <script>
+
+        //const sabit tanımlamada kullanılır.
+        const inputGen = document.getElementById("gen");
+        const inputYuk = document.getElementById("yuk");
+        const SpanSonuc = document.getElementById("sonuc");
+        // veri nesnemizi oluşturalım
+        let dikdortgen = {
+            genislik: 0,
+            yukseklik: 0,
+            alan: function () {
+                return this.genislik * this.yukseklik;
+            }
+        }
+
+        // ihtiyaç duyacağımız fonksiyonları tanımla
+        function sonucuGuncelle() {
+            dikdortgen.genislik = inputGen.value;
+            dikdortgen.yukseklik = inputYuk.value;
+            SpanSonuc.textContent = dikdortgen.alan();
+        }
+
+        //event tanımlamaları : ne değişince ne olsun?
+
+        inputGen.oninput = sonucuGuncelle;
+        inputYuk.oninput = sonucuGuncelle;
+
+        //onchange el girişi ile enter lanmazsa fonksiyon çalışmaz
+        //oninput el girişiyle hemen fonksiyon çalıştırır.
+    </script>
+</body>
+
+</html>
